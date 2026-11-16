@@ -11,6 +11,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Quickstart: quickstart.md
   - Ph2_ACF CSV Monitoring:
       - ph2acf-monitoring/index.md
       - Monitoring windows: ph2acf-monitoring/monitoring-windows.md

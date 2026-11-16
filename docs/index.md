@@ -3,7 +3,10 @@
 This site explains how monitoring works for the Inner Tracker, from the
 raw data coming out of Ph2_ACF to the dashboards you look at in Grafana.
 
-It covers four things:
+New here? **[Quickstart: Ph2_ACF to Grafana](quickstart.md)** walks through
+the whole path, start to finish, in one page.
+
+The rest of the site covers four things in more depth:
 
 1. **[Ph2_ACF CSV monitoring](ph2acf-monitoring/index.md)** - how Ph2_ACF
    records values while it runs, what it can record, and what "virtual
