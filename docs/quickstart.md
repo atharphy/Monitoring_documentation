@@ -11,13 +11,17 @@ registers you want:
 
 ```xml
 <MonitoringSettings>
-  <Monitoring type="RD53B" enable="1" silentRunning="0">
+  <Monitoring type="RD53B" enable="1" silentRunning="0" csv="1">
     <MonitoringSleepTime> 1000 </MonitoringSleepTime>
     <MonitoringElement device="RD53" register="VDDA" enable="1"/>
     ...
   </Monitoring>
 </MonitoringSettings>
 ```
+
+`enable="1"` turns monitoring on; `csv="1"` is what actually makes it write
+a CSV file - without it, nothing is recorded to disk even though
+monitoring is running.
 
 Check `csvMonitoringSettings.conf` to confirm the CSV allowlist and output
 path are set the way you want.

@@ -16,7 +16,7 @@ Monitoring is controlled in two places:
 
    ```xml
    <MonitoringSettings>
-     <Monitoring type="RD53B" enable="1" silentRunning="0">
+     <Monitoring type="RD53B" enable="1" silentRunning="0" csv="1">
        <MonitoringSleepTime> 1000 </MonitoringSleepTime>
        <MonitoringElement device="RD53"  register="VDDA" enable="1"/>
        <MonitoringElement device="RD53"  register="VDDD" enable="1"/>
@@ -27,7 +27,10 @@ Monitoring is controlled in two places:
    ```
 
    `enable="1"` on the whole `<Monitoring>` block turns monitoring on for the
-   run. `MonitoringSleepTime` (in milliseconds) is how often it reads the
+   run at all. `csv="1"` is what actually makes it write a CSV file - without
+   it, monitoring can still run (and still respects
+   [monitoring windows](monitoring-windows.md)) but nothing is recorded to
+   disk. `MonitoringSleepTime` (in milliseconds) is how often it reads the
    registers.
 
 2. **`csvMonitoringSettings.conf`** - a separate config file that controls
