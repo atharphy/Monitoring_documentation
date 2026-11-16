@@ -25,19 +25,19 @@ them, but most setups leave them off (`enable="0"`).
 
 | Register | What it is |
 |---|---|
-| `POLY_REL_TEMPSENS_TOP` | Polysilicon temperature sensor, top - relative |
-| `POLY_REL_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom - relative |
-| `POLY_ABS_TEMPSENS_TOP` | Polysilicon temperature sensor, top - absolute |
-| `POLY_ABS_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom - absolute |
+| `POLY_REL_TEMPSENS_TOP` | Polysilicon temperature sensor, top: relative |
+| `POLY_REL_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom: relative |
+| `POLY_ABS_TEMPSENS_TOP` | Polysilicon temperature sensor, top: absolute |
+| `POLY_ABS_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom: absolute |
 | `TEMPSENS_ANA_SLDO` | Temperature sensor on the analog SLDO regulator |
 | `TEMPSENS_DIG_SLDO` | Temperature sensor on the digital SLDO regulator |
 | `TEMPSENS_CENTER` | Temperature sensor at the center of the chip |
-| `INTERNAL_NTC_REL` | Chip's internal NTC reading - relative |
-| `INTERNAL_NTC_ABS` | Chip's internal NTC reading - absolute |
+| `INTERNAL_NTC_REL` | Chip's internal NTC reading: relative |
+| `INTERNAL_NTC_ABS` | Chip's internal NTC reading: absolute |
 | `NTC_VOLT` | NTC voltage, read directly |
 | `NTC_CURR` | NTC current, read directly |
 
-**Extra - references, radiation sensors, front-end tuning, diagnostics:**
+**Extra: references, radiation sensors, front-end tuning, diagnostics**
 
 | Register | What it is |
 |---|---|
