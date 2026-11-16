@@ -18,11 +18,11 @@ Ph2_ACF  -->  CSV exporter  -->  Prometheus  -->  Grafana
 1. **Ph2_ACF** writes the monitoring CSV, as covered in the previous
    section.
 2. **The CSV exporter** (`components/exporter` in the repo) tails that CSV
-   and turns each row into a Prometheus metric — `cmsit_monitor_value`,
+   and turns each row into a Prometheus metric - `cmsit_monitor_value`,
    `cmsit_lpgbt_monitor_value`, and a few others.
 3. **Prometheus** scrapes the exporter every second and stores the values,
    so you can look back at recent history, not just the latest value.
-4. **Grafana** reads from Prometheus and draws the dashboards — the parts
+4. **Grafana** reads from Prometheus and draws the dashboards - the parts
    view, the interactive view, the 3D view, and Chip Details.
 
 Every piece in this chain has its own start/stop script in the repo, plus a
@@ -32,12 +32,12 @@ lives.
 
 ## What's in this section
 
-- **[Installing the stack](install.md)** — the actual step-by-step commands.
-- **[Running it locally](local-setup.md)** — your own Prometheus + Grafana,
+- **[Installing the stack](install.md)** - the actual step-by-step commands.
+- **[Running it locally](local-setup.md)** - your own Prometheus + Grafana,
   nothing shared with anyone else.
-- **[Connecting to a central instance](central-setup.md)** — sending your
+- **[Connecting to a central instance](central-setup.md)** - sending your
   data to (or receiving from) a shared Prometheus/Grafana instead.
 
 This documentation explains the ideas; the repo's own `README.md` is the
-up-to-date, authoritative source for exact commands — if the two ever
+up-to-date, authoritative source for exact commands - if the two ever
 disagree, trust the repo.

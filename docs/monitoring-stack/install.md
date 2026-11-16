@@ -8,7 +8,7 @@ cd InnerTracker_monitoring
 cp config/paths.conf.example config/paths.conf
 ```
 
-Then open `config/paths.conf` and fill in the paths for your machine — at
+Then open `config/paths.conf` and fill in the paths for your machine - at
 minimum, where your Ph2_ACF checkout's monitoring config lives
 (`PH2ACF_MONITORING_CONFIG`). Everything else in the file has a sensible
 default; only change what you actually need to.
@@ -22,8 +22,8 @@ This one command:
 - Downloads and installs Prometheus and Grafana (at the pinned versions in
   `paths.conf`).
 - Installs the one community Grafana plugin the dashboards need.
-- Writes out every other config file — Prometheus's config, Grafana's
-  dashboard/data source setup, and the Ph2_ACF-side monitoring config — all
+- Writes out every other config file - Prometheus's config, Grafana's
+  dashboard/data source setup, and the Ph2_ACF-side monitoring config - all
   filled in from the one `paths.conf` file. You never hand-edit those.
 
 The two custom Grafana panels this project needs (the 3D viewer and the
@@ -37,7 +37,7 @@ bin/start_all.sh
 ```
 
 Starts the exporter, Prometheus, and Grafana, in that order. Grafana's own
-startup also arms two background watchers automatically — one that keeps
+startup also arms two background watchers automatically - one that keeps
 the dashboards in sync with the cabling database, and one that keeps the
 Chip Details dashboard in sync with whatever registers are currently
 enabled. You don't need to start those yourself.
@@ -52,7 +52,7 @@ bin/stop_all.sh        # stop everything
 bin/reset_all.sh        # stop + start, no data lost - use after editing paths.conf
 ```
 
-`bin/bootstrap.sh` is safe to run again any time — it skips whatever's
+`bin/bootstrap.sh` is safe to run again any time - it skips whatever's
 already installed, but always re-writes config from the current
 `paths.conf`, so run it again after any change to that file.
 

@@ -1,6 +1,6 @@
 # Connecting to a Central Instance
 
-Prometheus doesn't push data anywhere on its own by default — getting data
+Prometheus doesn't push data anywhere on its own by default - getting data
 to a shared, central Prometheus/Grafana needs one of two deliberate setups.
 Both are already built into `config/paths.conf`.
 
@@ -17,7 +17,7 @@ PROMETHEUS_REMOTE_WRITE_URL=http://<central-host>:<port>/api/v1/write
 ```
 
 Run `bin/bootstrap.sh` again to apply it. Leave this blank and your
-Prometheus just doesn't forward anywhere — it keeps working fine on its own
+Prometheus just doesn't forward anywhere - it keeps working fine on its own
 either way.
 
 For this to work, the *central* Prometheus has to be willing to accept
@@ -28,7 +28,7 @@ configuration needed for that direction.
 
 ## B. Let a remote Prometheus scrape your exporter directly instead
 
-No local forwarding — a Prometheus somewhere else just reads from your
+No local forwarding - a Prometheus somewhere else just reads from your
 exporter the normal way.
 
 ```ini
@@ -43,7 +43,7 @@ the remote Prometheus's own config.
 ## Either way: open the firewall
 
 Whichever direction the data flows, the receiving machine's firewall needs
-to allow it in, scoped to the specific other machine's address — never open
+to allow it in, scoped to the specific other machine's address - never open
 it to everyone:
 
 ```bash
@@ -58,5 +58,5 @@ firewall-cmd --reload
 - **Option B** if you'd rather not run local forwarding at all, and let the
   central instance pull directly.
 
-Most setups use **A** — it keeps working even if the central instance is
+Most setups use **A** - it keeps working even if the central instance is
 briefly unreachable, since nothing here depends on it to function locally.

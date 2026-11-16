@@ -1,7 +1,7 @@
 # Ph2_ACF CSV Monitoring
 
-Ph2_ACF can record live values from the hardware — temperatures, voltages,
-currents, and more — while it runs, and write them out as CSV files. This is
+Ph2_ACF can record live values from the hardware - temperatures, voltages,
+currents, and more - while it runs, and write them out as CSV files. This is
 the starting point for everything else in this documentation: the
 [exporter](../monitoring-stack/index.md) reads these CSVs and turns them
 into Prometheus metrics, which Grafana then shows as dashboards.
@@ -10,7 +10,7 @@ into Prometheus metrics, which Grafana then shows as dashboards.
 
 Monitoring is controlled in two places:
 
-1. **The hardware XML** — the `<Monitoring>` block decides *which* registers
+1. **The hardware XML** - the `<Monitoring>` block decides *which* registers
    are read off the hardware at all. Each register is listed with
    `enable="1"` or `enable="0"`:
 
@@ -30,7 +30,7 @@ Monitoring is controlled in two places:
    run. `MonitoringSleepTime` (in milliseconds) is how often it reads the
    registers.
 
-2. **`csvMonitoringSettings.conf`** — a separate config file that controls
+2. **`csvMonitoringSettings.conf`** - a separate config file that controls
    *how* the CSV is written: where it goes, how it rotates, which of the
    enabled registers actually make it into the CSV, and the settings the
    [exporter](../monitoring-stack/index.md) needs to find and read those

@@ -7,7 +7,7 @@ taken from a real run's hardware XML. A basic setup only turns on the first
 group; the rest (grouped below as "extra") are there to turn on if you need
 them, but most setups leave them off (`enable="0"`).
 
-**Core — on in a typical setup:**
+**Core - on in a typical setup:**
 
 | Register | What it is |
 |---|---|
@@ -25,19 +25,19 @@ them, but most setups leave them off (`enable="0"`).
 
 | Register | What it is |
 |---|---|
-| `POLY_REL_TEMPSENS_TOP` | Polysilicon temperature sensor, top — relative |
-| `POLY_REL_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom — relative |
-| `POLY_ABS_TEMPSENS_TOP` | Polysilicon temperature sensor, top — absolute |
-| `POLY_ABS_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom — absolute |
+| `POLY_REL_TEMPSENS_TOP` | Polysilicon temperature sensor, top - relative |
+| `POLY_REL_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom - relative |
+| `POLY_ABS_TEMPSENS_TOP` | Polysilicon temperature sensor, top - absolute |
+| `POLY_ABS_TEMPSENS_BOTTOM` | Polysilicon temperature sensor, bottom - absolute |
 | `TEMPSENS_ANA_SLDO` | Temperature sensor on the analog SLDO regulator |
 | `TEMPSENS_DIG_SLDO` | Temperature sensor on the digital SLDO regulator |
 | `TEMPSENS_CENTER` | Temperature sensor at the center of the chip |
-| `INTERNAL_NTC_REL` | Chip's internal NTC reading — relative |
-| `INTERNAL_NTC_ABS` | Chip's internal NTC reading — absolute |
+| `INTERNAL_NTC_REL` | Chip's internal NTC reading - relative |
+| `INTERNAL_NTC_ABS` | Chip's internal NTC reading - absolute |
 | `NTC_VOLT` | NTC voltage, read directly |
 | `NTC_CURR` | NTC current, read directly |
 
-**Extra — references, radiation sensors, front-end tuning, diagnostics:**
+**Extra - references, radiation sensors, front-end tuning, diagnostics:**
 
 | Register | What it is |
 |---|---|
@@ -71,7 +71,7 @@ them, but most setups leave them off (`enable="0"`).
 | `ADC0`–`ADC7` | Raw ADC channel readings, where used instead of (or in addition to) the named registers above |
 | `DLDPFecCorrectionCount0`–`3` | Forward error correction count, one per downlink data path |
 
-Not every lpGBT register is used on every setup — which ones are actually
+Not every lpGBT register is used on every setup - which ones are actually
 read depends on what the portcard wiring connects to each ADC channel, so
 the exact list can vary between hardware revisions.
 
@@ -85,7 +85,7 @@ a chip, using `device="Board"` instead of `RD53`/`LpGBT`. For example:
 ```
 
 This one counts FEC (forward error correction) corrections at the board
-level, as a firmware status register rather than a chip register — the
+level, as a firmware status register rather than a chip register - the
 register name is the firmware's own internal path, not a short label like
 the chip registers above.
 
@@ -105,7 +105,7 @@ has one more filter before it reaches the CSV:
 csv_register_allowlist = *
 ```
 
-`*` means "write every enabled register to the CSV" — this is the normal
+`*` means "write every enabled register to the CSV" - this is the normal
 setting. You can restrict it to specific register names (comma-separated) if
 you only want a subset written out, without having to disable them in the
 hardware XML.
@@ -125,7 +125,7 @@ lpgbt_csv_register_allowlist = *
 ```
 
 lpGBT has its own on/off switch and its own allowlist, separate from the RD53
-one above — so you can, for example, record every RD53 register but only a
+one above - so you can, for example, record every RD53 register but only a
 specific lpGBT one, or turn lpGBT recording off entirely while keeping RD53
 monitoring on.
 

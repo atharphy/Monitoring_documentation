@@ -8,22 +8,22 @@ a Parts/Interactive one.
 
 In the 3D dashboard, turn on:
 
-- **Portcards / cartridges** — shows the physical portcards in the model.
-- **Connected portcards only** — shows only the portcards that actually
+- **Portcards / cartridges** - shows the physical portcards in the model.
+- **Connected portcards only** - shows only the portcards that actually
   have a real connection defined (board ID, and a module/lpGBT link), from
   `hardware_geometry/portcards.yaml`. Everything else is hidden, instead of
   showing placeholder/unconnected positions.
-- **Service antlers** — the cabling structures that branch out across
+- **Service antlers** - the cabling structures that branch out across
   modules on a portcard.
 
-The cabling shown is for visual routing — it illustrates roughly how
+The cabling shown is for visual routing - it illustrates roughly how
 portcards and modules are connected, but it's not itself what decides
 whether something counts as "connected"; that comes from the actual mapping
 data.
 
 ## What's not there yet
 
-There's currently no dedicated "portcard register" dashboard — lpGBT
+There's currently no dedicated "portcard register" dashboard - lpGBT
 register values (see [lpGBT](lpgbt.md)) are exported to Prometheus, but no
 dashboard panel reads them yet. If you need to see an actual lpGBT reading
 today, you'd query Prometheus directly for `cmsit_lpgbt_monitor_value`
