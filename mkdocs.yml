@@ -1,4 +1,7 @@
 site_name: Monitoring Documentation
+site_url: https://atharphy.github.io/Monitoring_documentation/
+repo_url: https://github.com/atharphy/Monitoring_documentation
+repo_name: atharphy/Monitoring_documentation
 theme:
   name: material
   features:
