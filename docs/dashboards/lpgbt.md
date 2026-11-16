@@ -30,8 +30,13 @@ labels are `-1` on an lpGBT row.
 
 Parts, Interactive, and the 3D dashboard are module-tile views, keyed on
 `module`/`chip` - since lpGBT rows don't carry those, lpGBT values don't
-appear as a module tile there. If you want a view organized by portcard
-instead of by chip, see the note on [Portcards](portcards.md#whats-not-there-yet).
+appear as a module tile there. See [Portcards](portcards.md) for where
+portcard-level values show up instead.
+
+A `portcard`-scoped [virtual register](../ph2acf-monitoring/virtual-registers.md)
+(e.g. combining two lpGBTs' readings on the same portcard) works the same
+way - it's just another register name on `cmsit_monitor_value`, so it gets
+a Chip Details panel too.
 
 ## Querying directly
 
