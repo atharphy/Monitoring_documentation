@@ -1,0 +1,27 @@
+site_name: Monitoring Documentation
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Ph2_ACF CSV Monitoring:
+      - ph2acf-monitoring/index.md
+      - Monitoring windows: ph2acf-monitoring/monitoring-windows.md
+      - What can be monitored: ph2acf-monitoring/what-can-be-monitored.md
+      - Virtual registers: ph2acf-monitoring/virtual-registers.md
+  - DCA Query: dca-query/index.md
+  - Monitoring Stack:
+      - monitoring-stack/index.md
+      - Installing the stack: monitoring-stack/install.md
+      - Running it locally: monitoring-stack/local-setup.md
+      - Connecting to a central instance: monitoring-stack/central-setup.md
+  - Dashboards:
+      - dashboards/index.md
+      - Portcards: dashboards/portcards.md
+      - lpGBT: dashboards/lpgbt.md
+      - Modules: dashboards/modules.md
+      - Chips: dashboards/chips.md
