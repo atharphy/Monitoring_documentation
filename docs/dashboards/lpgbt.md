@@ -2,28 +2,44 @@
 
 lpGBT values - temperature, supply voltages, ADC channels, and the rest of
 the registers listed in [What Can Be Monitored](../ph2acf-monitoring/what-can-be-monitored.md#real-registers-lpgbt) -
-are read by Ph2_ACF, written to the CSV, and exported to Prometheus as
-`cmsit_lpgbt_monitor_value` and `cmsit_lpgbt_monitor_last_update_seconds`,
-exactly like RD53 values are.
+are read by Ph2_ACF, written to the CSV, and exported to Prometheus.
 
-## Current status: no dedicated lpGBT dashboard yet
+## Where they actually show up
 
-As of this writing, none of the dashboards build a panel from these two
-metrics - the **Chip Details** dashboard only discovers panels from
-`cmsit_monitor_value` (the RD53 metric), not the lpGBT one. The data is
-there in Prometheus; it just isn't drawn anywhere yet.
+The CSV Ph2_ACF writes today is a single "unified" file that has both RD53
+and lpGBT columns in it. Any lpGBT column (named `LPGBT_<register>`, e.g.
+`LPGBT_TEMP_value`) is exported as a normal `cmsit_monitor_value` sample -
+the **same metric the RD53 registers use** - with `register="LPGBT_TEMP"`
+and `portcard_id`/`lpgbt_efuse` labels filled in (`module`/`chip`/`efuse`
+are `-1` for a portcard-only row, since an lpGBT reading isn't tied to a
+specific chip).
 
-If you need an lpGBT value today, you can:
+There's a second metric, `cmsit_lpgbt_monitor_value`, but it's fed by a
+different, older, standalone lpGBT-only CSV format that isn't what the
+unified CSV produces - in the normal setup it stays empty.
 
-- Query Prometheus directly, e.g.
-  `cmsit_lpgbt_monitor_value{register="TEMP"}` at
-  `http://<prometheus-host>:<port>/graph`.
-- Build a quick panel in Grafana yourself, pointed at the same metric.
+## Seeing them in a dashboard
 
-## Where this would naturally fit later
+Because lpGBT registers land in `cmsit_monitor_value`, the **Chip Details**
+dashboard already picks them up automatically, the same way it picks up any
+RD53 register: it's built from whatever `register` values currently exist
+on that metric, with no fixed list. Turn an `LPGBT_*` register on and its
+panel appears in Chip Details within about 10 seconds, right alongside the
+RD53 ones - you just won't see a module/chip selected for it, since those
+labels are `-1` on an lpGBT row.
 
-The same pattern already used for [Chip Details](chips.md) - discover
-whatever registers currently exist in Prometheus, and build one panel per
-register automatically - would work the same way for lpGBT values. This is
-a known gap, not a limitation of the data itself: the values are already
-flowing all the way through the stack, just not drawn yet.
+Parts, Interactive, and the 3D dashboard are module-tile views, keyed on
+`module`/`chip` - since lpGBT rows don't carry those, lpGBT values don't
+appear as a module tile there. If you want a view organized by portcard
+instead of by chip, see the note on [Portcards](portcards.md#whats-not-there-yet).
+
+## Querying directly
+
+You can always query a specific lpGBT register in Prometheus without
+waiting for a dashboard panel:
+
+```
+cmsit_monitor_value{register="LPGBT_TEMP"}
+```
+
+at `http://<prometheus-host>:<port>/graph`.

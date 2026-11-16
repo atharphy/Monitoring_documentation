@@ -136,12 +136,26 @@ turns it into one of these Prometheus metrics:
 
 | Metric | What it means |
 |---|---|
-| `cmsit_monitor_value` | The actual RD53 register reading |
+| `cmsit_monitor_value` | A register reading - RD53 or lpGBT |
 | `cmsit_monitor_error` | Whether that reading came back as an error |
 | `cmsit_monitor_last_update_seconds` | How long ago this value was last updated |
-| `cmsit_lpgbt_monitor_value` | The actual lpGBT register reading |
+| `cmsit_lpgbt_monitor_value` | An lpGBT register reading, from a separate/older standalone lpGBT CSV format |
 | `cmsit_lpgbt_monitor_last_update_seconds` | How long ago this lpGBT value was last updated |
 
 Every one of these carries labels like `module`, `chip`, `efuse`, and
 `register`, which is how Grafana knows which panel a value belongs to. See
 [Dashboards](../dashboards/index.md) for how these show up visually.
+
+**lpGBT values usually come through `cmsit_monitor_value`, not
+`cmsit_lpgbt_monitor_value`.** The CSV format Ph2_ACF actually writes today
+is a single "unified" file with both RD53 and lpGBT columns in it. Any
+column named `LPGBT_<something>` (e.g. `LPGBT_TEMP_value`) is exported as a
+normal `cmsit_monitor_value` sample, with `register="LPGBT_TEMP"` and
+`portcard_id`/`lpgbt_efuse` labels filled in instead of `module`/`chip`/
+`efuse` (which are `-1` for a portcard-only row). `cmsit_lpgbt_monitor_value`
+exists for a different, older, standalone lpGBT-only CSV format - it isn't
+what the unified CSV produces. In practice, this means the lpGBT registers
+listed above usually show up as `LPGBT_TEMP`, `LPGBT_VDDTX`, etc. inside
+`cmsit_monitor_value` alongside the RD53 ones, including in any dashboard
+built from that metric. See [lpGBT](../dashboards/lpgbt.md) for what that
+looks like in the dashboards.

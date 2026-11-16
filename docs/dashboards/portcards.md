@@ -23,8 +23,12 @@ data.
 
 ## What's not there yet
 
-There's currently no dedicated "portcard register" dashboard - lpGBT
-register values (see [lpGBT](lpgbt.md)) are exported to Prometheus, but no
-dashboard panel reads them yet. If you need to see an actual lpGBT reading
-today, you'd query Prometheus directly for `cmsit_lpgbt_monitor_value`
-rather than finding it in a dashboard.
+There's currently no dedicated "portcard register" dashboard laid out by
+physical position the way Parts/Interactive are for modules. lpGBT register
+values (see [lpGBT](lpgbt.md)) do show up today, though - they land in
+`cmsit_monitor_value` alongside the RD53 ones, so the **Chip Details**
+dashboard already has a panel for any lpGBT register you've enabled
+(`register="LPGBT_TEMP"` and so on); there just isn't a tile-per-portcard
+view of them yet. If you need one directly, query Prometheus for
+`cmsit_monitor_value{register="LPGBT_TEMP"}` (or whichever register you
+want).

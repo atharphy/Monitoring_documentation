@@ -16,8 +16,11 @@ and its panel appears here within about 10 seconds - nothing to regenerate
 or re-import by hand. The same applies in reverse: stop recording a register
 and its panel disappears.
 
-This only covers RD53 registers today - see [lpGBT](lpgbt.md) for the
-current status of lpGBT values, which aren't shown here yet.
+This covers RD53 *and* lpGBT registers - any `LPGBT_*` register (e.g.
+`LPGBT_TEMP`) lands on the same `cmsit_monitor_value` metric and gets a
+panel here too, just without a module/chip selected (an lpGBT reading isn't
+tied to a specific chip). See [lpGBT](lpgbt.md) for the detail on how that
+works.
 
 ## Freshness
 
