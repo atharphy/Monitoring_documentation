@@ -1,12 +1,12 @@
 # Monitoring Documentation
 
-This site explains how monitoring works for the Inner Tracker, from the
+This TWiki explains how monitoring works for the Inner Tracker, from the
 raw data coming out of Ph2_ACF to the dashboards you look at in Grafana.
 
 New here? **[Quickstart: Ph2_ACF to Grafana](quickstart.md)** walks through
 the whole path, start to finish, in one page.
 
-The rest of the site covers four things in more depth:
+The rest of the TWiki covers four things in more depth:
 
 1. **[Ph2_ACF CSV monitoring](ph2acf-monitoring/index.md)** - how Ph2_ACF
    records values while it runs, what it can record, and what "virtual
@@ -22,5 +22,5 @@ The rest of the site covers four things in more depth:
 
 If you only need to *run* the stack (not understand every detail), the repo
 itself has a step-by-step README:
-<https://github.com/atharphy/InnerTracker_monitoring>. This site explains the
+<https://github.com/atharphy/InnerTracker_monitoring>. This TWiki explains the
 concepts behind it and the pieces that live outside that repo.
